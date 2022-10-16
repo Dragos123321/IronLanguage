@@ -1,0 +1,41 @@
+The words - predefined tokens are specified between " and ":
+
+program ::= " cmpdstmt "
+
+decllist ::= declaration | declaration ";" decllist
+
+declaration ::= "LET" "IDENTIFIER ":" type
+
+type1 ::= "BOOL" | "CHAR" | "INT" | "DOUBLE" | "I8" | "I16" | "I32" | "I64" | "UI8" | "UI16" | "UI32" | "UI64"
+
+arraydecl ::= "VEC" "("nr" ";" "type1")"
+
+type ::= type1|arraydecl
+
+cmpdstmt ::= stmtlist
+
+stmtlist ::= stmt | stmt ";" stmtlist
+
+stmt ::= simplstmt | structstmt
+
+simplstmt ::= assignstmt | iostmt
+
+assignstmt ::= IDENTIFIER "=" expression
+
+expression ::= expression "+"|"-" term | term
+
+term ::= term "*"|"/"|"%" factor | factor
+
+factor ::= "(" expression ")" | IDENTIFIER
+
+iostmt ::= "READLINE" "(" IDENTIFIER ")" | "PRINT" "(" IDENTIFIER " | "STRING" {"," "IDENTIFIER"} ")"
+
+structstmt ::= cmpdstmt | ifstmt | whilestmt
+
+ifstmt ::= "IF" condition "{" stmt "}" {"ELSE IF" stmt} ["ELSE" stmt]
+
+whilestmt ::= "WHILE" condition "{" stmt "}"
+
+condition ::= expression RELATION expression
+
+RELATION ::= "<" | "<=" | "==" | "!=" | ">=" | ">"
