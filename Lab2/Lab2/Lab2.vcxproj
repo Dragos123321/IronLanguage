@@ -139,11 +139,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Pif.h" />
+    <ClInclude Include="Scanner.h" />
     <ClInclude Include="SymbolTable.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Pif.cpp" />
+    <ClCompile Include="Scanner.cpp" />
     <ClCompile Include="SymbolTable.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Lexic.txt" />
+    <Text Include="..\p1.txt" />
+    <Text Include="..\p1err.txt" />
+    <Text Include="..\p2.txt" />
+    <Text Include="..\p3.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\p1.txt.aux" />
+    <None Include="..\p1err.txt.aux" />
+    <None Include="..\p2.txt.aux" />
+    <None Include="..\p3.txt.aux" />
+    <None Include="..\PIF.out" />
+    <None Include="..\ST.out" />
+    <None Include="..\Syntax.in" />
+    <None Include="..\token.in" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

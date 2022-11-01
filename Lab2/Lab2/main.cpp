@@ -1,17 +1,23 @@
-#include "SymbolTable.h"
+#include "Scanner.h"
 
 #include <iostream>
 #include <vector>
 #include <iomanip>
 
 int main() {
-    SymbolTable sym_table;
+    Scanner scanner1("../p1.txt", "../token.in");
 
-    std::vector<std::string> symbols = { "a", "car", "3", "20", "ident1", "a", "3", "30", "a", "ident2", "red_car", "car", "100"};
+    std::cout << scanner1.parse() << '\n';
 
-    for ( auto symbol : symbols ) {
-        std::cout << std::left << std::setw(3) << sym_table.add(symbol) << symbol << "\n";
-    }
+    Scanner scanner2("../p2.txt", "../token.in");
 
-    return 0;
+    std::cout << scanner2.parse() << '\n';
+
+    Scanner scanner3("../p3.txt", "../token.in");
+
+    std::cout << scanner3.parse() << '\n';
+
+    Scanner scanner1err("../p1err.txt", "../token.in");
+
+    std::cout << scanner1err.parse() << '\n';
 }

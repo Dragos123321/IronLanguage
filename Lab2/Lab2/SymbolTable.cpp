@@ -1,5 +1,7 @@
 #include "SymbolTable.h"
 
+#include <fstream>
+
 SymbolTable::SymbolTable() : m_tree{ nullptr }, m_current_index{ 0 } {
 }
 
@@ -88,6 +90,23 @@ void SymbolTable::remove(Node* node) {
 
     delete node;
     node = nullptr;
+}
+
+void SymbolTable::print(std::ofstream& out)
+{
+    print_node(out, m_tree);
+}
+
+void SymbolTable::print_node(std::ofstream& out, Node* node)
+{
+    if (node == nullptr) {
+        return;
+    }
+
+    out << node->value << ' ' << node->index << '\n';
+
+    print_node(out, node->left);
+    print_node(out, node->right);
 }
 
 SymbolTable::~SymbolTable() {

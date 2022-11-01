@@ -1,0 +1,48 @@
+Alphabet:
+
+a. Upper (A-Z) and lower case letters (a-z) of the English alphabet
+b. Underline character '_';
+c. Decimal digits (0-9);
+
+Lexic:
+
+a.Special symbols, representing:
+
+-operators + - * / % = < <= == > >= != !
+
+-separators () [] {}  : ; space ,
+
+- reserved words:
+char, bool, double, int, uint, string, vec, let, and, or, in, if, else, switch, do, while, for, read, print
+
+b.identifiers
+
+-a sequence of letters and  digits, such that the first character is a letter; the rule is:
+
+identifier ::= letter|(_|letter){(letter|digit|_)}
+letter ::= "A" | "B" | ... | "Z" | "a" | "b" | ... | "z"
+digit ::= "0" | "1" | ... | "9"
+no_zero_digit = "1" | "2" | ... | "9" 
+
+c.constants
+
+1.integer - rule:
+
+noconst := "0" | "+"no | "-"no | no
+no := no_zero_digit{digit}{no}
+
+2.unsigned integer - rule:
+
+noconst := "+"no | no
+
+no := "0" | no_zero_digit{digit}{no}
+
+2.character
+
+character := 'letter'|'digit'
+
+3.string
+
+constchar := "string"
+string := [char]{string}
+char := letter|digit

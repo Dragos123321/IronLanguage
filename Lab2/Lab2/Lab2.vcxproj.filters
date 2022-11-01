@@ -18,6 +18,12 @@
     <ClInclude Include="SymbolTable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Pif.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scanner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SymbolTable.cpp">
@@ -26,5 +32,28 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Pif.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Scanner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\p1.txt" />
+    <Text Include="..\p1err.txt" />
+    <Text Include="..\p2.txt" />
+    <Text Include="..\p3.txt" />
+    <Text Include="..\Lexic.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\PIF.out" />
+    <None Include="..\ST.out" />
+    <None Include="..\Syntax.in" />
+    <None Include="..\token.in" />
+    <None Include="..\p1.txt.aux" />
+    <None Include="..\p1err.txt.aux" />
+    <None Include="..\p2.txt.aux" />
+    <None Include="..\p3.txt.aux" />
   </ItemGroup>
 </Project>

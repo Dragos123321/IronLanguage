@@ -1,0 +1,5 @@
+let 1a: uint = 5;
+let b: uint = 10;
+let pretty_print: string = "The_sum_is_;
+
+print( "{}_{}", pretty_print, a + b );

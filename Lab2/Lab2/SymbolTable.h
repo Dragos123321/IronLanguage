@@ -19,6 +19,9 @@ public:
 
     void remove(Node* node);
 
+    void print(std::ofstream& out);
+    void print_node(std::ofstream& out, Node* node);
+
     ~SymbolTable();
 
 private:

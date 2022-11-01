@@ -1,0 +1,19 @@
+let a: int = 10;
+let b: int = 20;
+let c: int = 5;
+let min: int = 0;
+
+if a < b and a < c
+{
+    min = a;
+}
+else if b < a and b < c
+{
+    min = b;
+}
+else
+{
+    min = c;
+}
+
+print( "{}", min );
