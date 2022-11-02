@@ -13,7 +13,7 @@ a.Special symbols, representing:
 -separators () [] {}  : ; space ,
 
 - reserved words:
-char, bool, double, int, uint, string, vec, let, and, or, in, if, else, switch, do, while, for, read, print
+char, bool, int, uint, string, vec, let, and, or, in, if, else, switch, do, while, for, read, print
 
 b.identifiers
 
@@ -45,4 +45,4 @@ character := 'letter'|'digit'
 
 constchar := "string"
 string := [char]{string}
-char := letter|digit
+char := letter|digit|_|{}

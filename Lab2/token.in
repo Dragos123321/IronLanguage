@@ -9,7 +9,6 @@
 }
 char
 bool
-double
 int
 uint
 string
@@ -24,6 +23,8 @@ do
 for
 read
 print
+true
+false
 +
 -
 /

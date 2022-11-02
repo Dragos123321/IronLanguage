@@ -1,5 +1,5 @@
 let a: int = 10;
-let b: int = 20;
+let a: int = 20;
 let c: int = 5;
 let min: int = 0;
 

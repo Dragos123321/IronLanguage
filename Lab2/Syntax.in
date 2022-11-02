@@ -1,6 +1,6 @@
 The words - predefined tokens are specified between " and ":
 
-program ::= " cmpdstmt "
+program ::= "cmpdstmt"
 
 decllist ::= declaration | declaration ";" decllist
 
@@ -8,7 +8,7 @@ declaration ::= "LET" "IDENTIFIER ":" type
 
 type1 ::= "BOOL" | "CHAR" | "INT" | "DOUBLE" | "UINT"
 
-arraydecl ::= "VEC" "( " "nr" ";" "type1" " )"
+arraydecl ::= "VEC" "(" "nr" ";" "type1" ")"
 
 type ::= type1|arraydecl
 
@@ -26,15 +26,15 @@ expression ::= expression "+"|"-" term | term
 
 term ::= term "*"|"/"|"%" factor | factor
 
-factor ::= "( " expression " )" | IDENTIFIER
+factor ::= "(" expression ")" | IDENTIFIER
 
-iostmt ::= "READ" "( " IDENTIFIER " )" | "PRINT" "( " IDENTIFIER " | "STRING" {"," "IDENTIFIER"} " )"
+iostmt ::= "READ" "(" IDENTIFIER ")" | "PRINT" "(" IDENTIFIER " | "STRING" {"," "IDENTIFIER"} ")"
 
 structstmt ::= cmpdstmt | ifstmt | whilestmt
 
-ifstmt ::= "IF" condition "{ " stmt " }" {"ELSE IF " stmt} ["ELSE" stmt]
+ifstmt ::= "IF" condition "{" stmt "}" {"ELSE IF " stmt} ["ELSE" stmt]
 
-whilestmt ::= "WHILE" condition "{ " stmt " }"
+whilestmt ::= "WHILE" condition "{" stmt "}"
 
 condition ::= expression RELATION expression
 

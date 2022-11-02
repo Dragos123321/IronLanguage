@@ -18,7 +18,7 @@ Scanner::Scanner(const std::string& path, const std::string& tokens_file) : m_pa
 }
 
 std::vector<std::string> operators{ "<", ">", "!", "+", "-", "*", "/" };
-std::vector<std::string> keywords{ "char", "bool", "double", "int", "uint", "string", "vec", "let", "and", "or", "if", "else", "while", "do", "for", "read", "print" };
+std::vector<std::string> keywords{ "char", "bool", "int", "uint", "string", "vec", "let", "and", "or", "if", "else", "while", "do", "for", "read", "print", "true", "false" };
 
 void Scanner::create_intermediate_file()
 {
@@ -66,7 +66,8 @@ void Scanner::create_intermediate_file()
                 }
                 else {
                     if (token == "=") {
-                        std::regex r("[^=<>!\+-/\*]");
+                        std::regex r_start("[^=<>!\+-/\*]");
+                        std::regex r_end("[^=]");
 
                         if (pos > 0 && pos < line.size() - token.size() - 1) {
                             std::string pos_min_1 = "";
@@ -74,7 +75,7 @@ void Scanner::create_intermediate_file()
                             pos_min_1.push_back(line[pos - 1]);
                             pos_plus_1.push_back(line[pos + 1]);
 
-                            if (!(std::regex_match(pos_min_1, r) && std::regex_match(pos_plus_1, r))) {
+                            if (!(std::regex_match(pos_min_1, r_start) && std::regex_match(pos_plus_1, r_end))) {
                                 pos += token.size();
                                 pos = line.find(token, pos);
                                 continue;
@@ -84,7 +85,7 @@ void Scanner::create_intermediate_file()
                             std::string pos_min_1 = "";
                             pos_min_1.push_back(line[pos - 1]);
 
-                            if (!std::regex_match(pos_min_1, r)) {
+                            if (!std::regex_match(pos_min_1, r_start)) {
                                 pos += token.size();
                                 pos = line.find(token, pos);
                                 continue;
@@ -94,7 +95,7 @@ void Scanner::create_intermediate_file()
                             std::string pos_plus_1 = "";
                             pos_plus_1.push_back(line[pos + 1]);
 
-                            if (!std::regex_match(pos_plus_1, r)) {
+                            if (!std::regex_match(pos_plus_1, r_end)) {
                                 pos += token.size();
                                 pos = line.find(token, pos);
                                 continue;
@@ -175,8 +176,8 @@ std::pair<bool, std::pair<int, std::string>> Scanner::try_parse()
                     }
 
                     std::regex regex1("^-?[1-9][0-9]*|0|$");
-                    std::regex regex2("^\'[^\\\'\"]?\'$");
-                    std::regex regex3("^\"[^\\\'\"]*\"$");
+                    std::regex regex2("^\'[a-zA-Z0-9]?\'$");
+                    std::regex regex3("^\"[a-zA-Z0-9\{\}_]*\"$");
                     std::regex regex4("^([a-zA-Z]|_)[a-zA-Z_0-9]*$");
 
                     if (!(std::regex_match(el, regex1) ||
@@ -215,8 +216,8 @@ std::pair<bool, std::pair<int, std::string>> Scanner::try_parse()
                     }
 
                     std::regex regex1("^-?[1-9][0-9]*|0|$");
-                    std::regex regex2("^\'[^\\\'\"]?\'$");
-                    std::regex regex3("^\"[^\\\'\"]*\"$");
+                    std::regex regex2("^\'[a-zA-Z0-9]?\'$");
+                    std::regex regex3("^\"[a-zA-Z0-9\{\}_]*\"$");
                     std::regex regex4("^([a-zA-Z]|_)[a-zA-Z_0-9]*$");
 
                     if (!(std::regex_match(el, regex1) || std::regex_match(el, regex2) || std::regex_match(el, regex3) || std::regex_match(el, regex4))) {
@@ -236,8 +237,8 @@ std::pair<bool, std::pair<int, std::string>> Scanner::try_parse()
                     }
 
                     std::regex regex1("^-?[1-9][0-9]*|0|$");
-                    std::regex regex2("^\'[^\\\'\"]?\'$");
-                    std::regex regex3("^\"[^\\\'\"]*\"$");
+                    std::regex regex2("^\'[a-zA-Z0-9]?\'$");
+                    std::regex regex3("^\"[a-zA-Z0-9\{\}_]*\"$");
                     std::regex regex4("^([a-zA-Z]|_)[a-zA-Z_0-9]*$");
                     std::regex regex5("^-?[1-9][0-9]*|0\.\.([a-zA-Z]|_)[a-zA-Z_0-9]*$");
 
