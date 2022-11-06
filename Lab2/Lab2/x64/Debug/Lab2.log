@@ -1,4 +1,6 @@
-﻿  Scanner.cpp
+﻿  main.cpp
+  Pif.cpp
+  Scanner.cpp
 D:\Dragos\Work\Faculty\FLCD\Lab2\Lab2\Scanner.cpp(69,44): warning C4129: '+': unrecognized character escape sequence
 D:\Dragos\Work\Faculty\FLCD\Lab2\Lab2\Scanner.cpp(69,44): warning C4129: '*': unrecognized character escape sequence
 D:\Dragos\Work\Faculty\FLCD\Lab2\Lab2\Scanner.cpp(180,39): warning C4129: '{': unrecognized character escape sequence
@@ -8,4 +10,6 @@ D:\Dragos\Work\Faculty\FLCD\Lab2\Lab2\Scanner.cpp(220,39): warning C4129: '}': u
 D:\Dragos\Work\Faculty\FLCD\Lab2\Lab2\Scanner.cpp(241,39): warning C4129: '{': unrecognized character escape sequence
 D:\Dragos\Work\Faculty\FLCD\Lab2\Lab2\Scanner.cpp(241,39): warning C4129: '}': unrecognized character escape sequence
 D:\Dragos\Work\Faculty\FLCD\Lab2\Lab2\Scanner.cpp(243,39): warning C4129: '.': unrecognized character escape sequence
+  SymbolTable.cpp
+  Generating Code...
   Lab2.vcxproj -> D:\Dragos\Work\Faculty\FLCD\Lab2\x64\Debug\Lab2.exe

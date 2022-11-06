@@ -163,7 +163,7 @@ std::pair<bool, std::pair<int, std::string>> Scanner::try_parse()
 
                     size_t nr_pif = m_symTable.add(el);
 
-                    m_pif.push(el, std::to_string(nr_pif));
+                    m_pif.push("id", std::to_string(nr_pif));
                     m_pif.push("[", "-1");
                 }
                 else if (el[el.size() - 1] == ';') {
@@ -189,7 +189,7 @@ std::pair<bool, std::pair<int, std::string>> Scanner::try_parse()
 
                     size_t nr_pif = m_symTable.add(el);
 
-                    m_pif.push(el, std::to_string(nr_pif));
+                    m_pif.push("id", std::to_string(nr_pif));
                     m_pif.push(";", "-1");
                 }
                 else if (el[el.size() - 1] == ':') {
@@ -203,7 +203,7 @@ std::pair<bool, std::pair<int, std::string>> Scanner::try_parse()
 
                     size_t nr_pif = m_symTable.add(el);
 
-                    m_pif.push(el, std::to_string(nr_pif));
+                    m_pif.push("id", std::to_string(nr_pif));
                     m_pif.push(":", "-1");
                 }
                 else if (el[el.size() - 1] == ',') {
@@ -252,7 +252,7 @@ std::pair<bool, std::pair<int, std::string>> Scanner::try_parse()
 
                     size_t nr_pif = m_symTable.add(el);
 
-                    m_pif.push(el, std::to_string(nr_pif));
+                    m_pif.push("id", std::to_string(nr_pif));
                 }
             }
 
