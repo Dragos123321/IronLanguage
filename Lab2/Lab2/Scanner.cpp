@@ -189,7 +189,12 @@ std::pair<bool, std::pair<int, std::string>> Scanner::try_parse()
 
                     size_t nr_pif = m_symTable.add(el);
 
-                    m_pif.push("id", std::to_string(nr_pif));
+                    if (std::regex_match(el, regex4)) {
+                        m_pif.push("id", std::to_string(nr_pif));
+                    }
+                    else {
+                        m_pif.push("const", std::to_string(nr_pif));
+                    }
                     m_pif.push(";", "-1");
                 }
                 else if (el[el.size() - 1] == ':') {
@@ -252,7 +257,12 @@ std::pair<bool, std::pair<int, std::string>> Scanner::try_parse()
 
                     size_t nr_pif = m_symTable.add(el);
 
-                    m_pif.push("id", std::to_string(nr_pif));
+                    if (std::regex_match(el, regex4)) {
+                        m_pif.push("id", std::to_string(nr_pif));
+                    } 
+                    else {
+                        m_pif.push("const", std::to_string(nr_pif));
+                    }
                 }
             }
 
