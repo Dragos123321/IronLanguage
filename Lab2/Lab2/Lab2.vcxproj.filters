@@ -24,6 +24,12 @@
     <ClInclude Include="Scanner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Fa.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Transition.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SymbolTable.cpp">
@@ -36,6 +42,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Scanner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Fa.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Transition.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -55,5 +67,8 @@
     <None Include="..\p1err.txt.aux" />
     <None Include="..\p2.txt.aux" />
     <None Include="..\p3.txt.aux" />
+    <None Include="FA.in" />
+    <None Include="FA_int.in" />
+    <None Include="FA_identifier.in" />
   </ItemGroup>
 </Project>

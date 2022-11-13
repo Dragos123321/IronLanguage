@@ -139,15 +139,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Fa.h" />
     <ClInclude Include="Pif.h" />
     <ClInclude Include="Scanner.h" />
     <ClInclude Include="SymbolTable.h" />
+    <ClInclude Include="Transition.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Fa.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pif.cpp" />
     <ClCompile Include="Scanner.cpp" />
     <ClCompile Include="SymbolTable.cpp" />
+    <ClCompile Include="Transition.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Lexic.txt" />
@@ -165,6 +169,9 @@
     <None Include="..\ST.out" />
     <None Include="..\Syntax.in" />
     <None Include="..\token.in" />
+    <None Include="FA.in" />
+    <None Include="FA_identifier.in" />
+    <None Include="FA_int.in" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

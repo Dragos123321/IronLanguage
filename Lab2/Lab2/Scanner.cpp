@@ -7,14 +7,16 @@
 
 std::vector<std::string> split_string(const std::string& line);
 
-Scanner::Scanner(const std::string& path, const std::string& tokens_file) : m_path{ path }
-{
+Scanner::Scanner(const std::string& path, const std::string& tokens_file) : m_path{ path } {
     std::ifstream in(tokens_file);
     std::string token;
 
     while (in >> token) {
         m_tokens.push_back(token);
     }
+
+    m_fa_int.parse("FA_int.in");
+    m_fa_identifier.parse("FA_identifier.in");
 }
 
 std::vector<std::string> operators{ "<", ">", "!", "+", "-", "*", "/" };
@@ -155,9 +157,9 @@ std::pair<bool, std::pair<int, std::string>> Scanner::try_parse()
                 else if (el[el.size() - 1] == '[') {
                     el.pop_back();
 
-                    std::regex regex("^([a-zA-Z]|_)[a-zA-Z_0-9]*$");
+                    //std::regex regex("^([a-zA-Z]|_)[a-zA-Z_0-9]*$");
 
-                    if (!std::regex_match(el, regex)) {
+                    if (!m_fa_identifier.check(el)) {
                         return std::make_pair(false, std::make_pair(line_index, el));
                     }
 
@@ -178,18 +180,18 @@ std::pair<bool, std::pair<int, std::string>> Scanner::try_parse()
                     std::regex regex1("^-?[1-9][0-9]*|0|$");
                     std::regex regex2("^\'[a-zA-Z0-9]?\'$");
                     std::regex regex3("^\"[a-zA-Z0-9\{\}_]*\"$");
-                    std::regex regex4("^([a-zA-Z]|_)[a-zA-Z_0-9]*$");
+                    //std::regex regex4("^([a-zA-Z]|_)[a-zA-Z_0-9]*$");
 
-                    if (!(std::regex_match(el, regex1) ||
+                    if (!(m_fa_int.check(el) ||
                         std::regex_match(el, regex2) ||
                         std::regex_match(el, regex3) ||
-                        std::regex_match(el, regex4))) {
+                        m_fa_identifier.check(el))) {
                         return std::make_pair(false, std::make_pair(line_index, el));
                     }
 
                     size_t nr_pif = m_symTable.add(el);
 
-                    if (std::regex_match(el, regex4)) {
+                    if (m_fa_identifier.check(el)) {
                         m_pif.push("id", std::to_string(nr_pif));
                     }
                     else {
@@ -200,9 +202,9 @@ std::pair<bool, std::pair<int, std::string>> Scanner::try_parse()
                 else if (el[el.size() - 1] == ':') {
                     el.pop_back();
 
-                    std::regex regex("^([a-zA-Z]|_)[a-zA-Z_0-9]*$");
+                    //std::regex regex("^([a-zA-Z]|_)[a-zA-Z_0-9]*$");
 
-                    if (!std::regex_match(el, regex)) {
+                    if (!m_fa_identifier.check(el)) {
                         return std::make_pair(false, std::make_pair(line_index, el));
                     }
 
@@ -220,12 +222,11 @@ std::pair<bool, std::pair<int, std::string>> Scanner::try_parse()
                         continue;
                     }
 
-                    std::regex regex1("^-?[1-9][0-9]*|0|$");
                     std::regex regex2("^\'[a-zA-Z0-9]?\'$");
                     std::regex regex3("^\"[a-zA-Z0-9\{\}_]*\"$");
-                    std::regex regex4("^([a-zA-Z]|_)[a-zA-Z_0-9]*$");
+                    //std::regex regex4("^([a-zA-Z]|_)[a-zA-Z_0-9]*$");
 
-                    if (!(std::regex_match(el, regex1) || std::regex_match(el, regex2) || std::regex_match(el, regex3) || std::regex_match(el, regex4))) {
+                    if (!(m_fa_int.check(el) || std::regex_match(el, regex2) || std::regex_match(el, regex3) || m_fa_identifier.check(el))) {
                         return std::make_pair(false, std::make_pair(line_index, el));
                     }
 
@@ -241,23 +242,22 @@ std::pair<bool, std::pair<int, std::string>> Scanner::try_parse()
                         continue;
                     }
 
-                    std::regex regex1("^-?[1-9][0-9]*|0|$");
                     std::regex regex2("^\'[a-zA-Z0-9]?\'$");
                     std::regex regex3("^\"[a-zA-Z0-9\{\}_]*\"$");
-                    std::regex regex4("^([a-zA-Z]|_)[a-zA-Z_0-9]*$");
+                    //std::regex regex4("^([a-zA-Z]|_)[a-zA-Z_0-9]*$");
                     std::regex regex5("^-?[1-9][0-9]*|0\.\.([a-zA-Z]|_)[a-zA-Z_0-9]*$");
 
-                    if (!(std::regex_match(el, regex1) || 
+                    if (!(m_fa_int.check(el) ||
                           std::regex_match(el, regex2) || 
                           std::regex_match(el, regex3) || 
-                          std::regex_match(el, regex4) ||
+                        m_fa_identifier.check(el) ||
                           std::regex_match(el, regex5))) {
                         return std::make_pair( false, std::make_pair(line_index, el) );
                     }
 
                     size_t nr_pif = m_symTable.add(el);
 
-                    if (std::regex_match(el, regex4)) {
+                    if (m_fa_identifier.check(el)) {
                         m_pif.push("id", std::to_string(nr_pif));
                     } 
                     else {

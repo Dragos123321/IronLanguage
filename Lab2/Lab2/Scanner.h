@@ -3,6 +3,7 @@
 #include <vector>
 #include "Pif.h"
 #include "SymbolTable.h"
+#include "Fa.h"
 
 class Scanner
 {
@@ -23,5 +24,7 @@ private:
     Pif m_pif;
     SymbolTable m_symTable;
     std::vector<std::string> m_tokens;
+    Fa m_fa_int;
+    Fa m_fa_identifier;
 };
 
