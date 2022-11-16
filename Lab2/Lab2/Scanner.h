@@ -27,4 +27,3 @@ private:
     Fa m_fa_int;
     Fa m_fa_identifier;
 };
-

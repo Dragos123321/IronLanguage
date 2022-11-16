@@ -32,4 +32,3 @@ private:
     std::set<std::string> m_final_states;
     bool m_isDFA = true;
 };
-
