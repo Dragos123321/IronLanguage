@@ -1,14 +1,2 @@
-﻿  Fa.cpp
-  Scanner.cpp
-D:\Dragos\Work\Faculty\FLCD\Lab2\Lab2\Scanner.cpp(71,44): warning C4129: '+': unrecognized character escape sequence
-D:\Dragos\Work\Faculty\FLCD\Lab2\Lab2\Scanner.cpp(71,44): warning C4129: '*': unrecognized character escape sequence
-D:\Dragos\Work\Faculty\FLCD\Lab2\Lab2\Scanner.cpp(182,39): warning C4129: '{': unrecognized character escape sequence
-D:\Dragos\Work\Faculty\FLCD\Lab2\Lab2\Scanner.cpp(182,39): warning C4129: '}': unrecognized character escape sequence
-D:\Dragos\Work\Faculty\FLCD\Lab2\Lab2\Scanner.cpp(226,39): warning C4129: '{': unrecognized character escape sequence
-D:\Dragos\Work\Faculty\FLCD\Lab2\Lab2\Scanner.cpp(226,39): warning C4129: '}': unrecognized character escape sequence
-D:\Dragos\Work\Faculty\FLCD\Lab2\Lab2\Scanner.cpp(246,39): warning C4129: '{': unrecognized character escape sequence
-D:\Dragos\Work\Faculty\FLCD\Lab2\Lab2\Scanner.cpp(246,39): warning C4129: '}': unrecognized character escape sequence
-D:\Dragos\Work\Faculty\FLCD\Lab2\Lab2\Scanner.cpp(248,39): warning C4129: '.': unrecognized character escape sequence
-  main.cpp
-  Generating Code...
+﻿  Grammar.cpp
   Lab2.vcxproj -> D:\Dragos\Work\Faculty\FLCD\Lab2\x64\Debug\Lab2.exe

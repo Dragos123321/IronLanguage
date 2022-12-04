@@ -1,0 +1,18 @@
+N = {
+    S
+    H
+}
+
+T = {
+    b
+    c
+    d
+    e
+}
+
+P = {
+    S -> bSe|H
+    H -> cHd|cd
+}
+
+s = S
