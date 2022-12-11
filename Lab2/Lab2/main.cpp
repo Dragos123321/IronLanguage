@@ -8,7 +8,7 @@
 int main() {
     Grammar grammar;
 
-    grammar.parse("g1.txt");
+    grammar.parse("g2.txt");
 
     auto nonterminals = grammar.get_nonterminals();
     auto terminals = grammar.get_terminals();
@@ -17,12 +17,12 @@ int main() {
 
     bool done = true;
 
-    std::cout << "Menu:\n1 -> nontermials\n2 -> terminals\n3 -> productions\n4 -> start symbol\n0 -> exit\n\n";
+    std::cout << "Menu:\n1 -> nontermials\n2 -> terminals\n3 -> productions\n4 -> start symbol\n5 -> check cfg\n0 -> exit\n\n";
 
     while (done) {
         int command;
 
-        std::cout << "command>> ";
+        std::cout << "command> ";
         std::cin >> command;
 
         switch (command) {
@@ -53,12 +53,13 @@ int main() {
             case 4:
                 std::cout << "Start symbol: \n" << start_symbol << "\n\n";
                 break;
+            case 5:
+                std::cout << "Is cfg: " << std::boolalpha << grammar.isCFG() << "\n\n";
+                break;
             default:
                 std::cout << "Invalid command\n\n";
         }
     }
-
-    std::cout << std::boolalpha << grammar.isCFG() << '\n';
 
     std::cout << "\n-------------------------------------------------------------\n\n";
 

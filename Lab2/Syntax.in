@@ -1,7 +1,5 @@
 The words - predefined tokens are specified between " and ":
 
-program ::= "cmpdstmt"
-
 decllist ::= declaration | declaration ";" decllist
 
 declaration ::= "LET" "IDENTIFIER ":" type
@@ -12,9 +10,7 @@ arraydecl ::= "VEC" "(" "nr" ";" "type1" ")"
 
 type ::= type1|arraydecl
 
-cmpdstmt ::= stmtlist
-
-stmtlist ::= stmt | stmt ";" stmtlist
+program ::= stmt | stmt ";" program
 
 stmt ::= simplstmt | structstmt
 
@@ -30,7 +26,7 @@ factor ::= "(" expression ")" | IDENTIFIER
 
 iostmt ::= "READ" "(" IDENTIFIER ")" | "PRINT" "(" IDENTIFIER " | "STRING" {"," "IDENTIFIER"} ")"
 
-structstmt ::= cmpdstmt | ifstmt | whilestmt
+structstmt ::= ifstmt | whilestmt
 
 ifstmt ::= "IF" condition "{" stmt "}" {"ELSE IF " stmt} ["ELSE" stmt]
 

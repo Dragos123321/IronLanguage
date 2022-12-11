@@ -1,18 +1,16 @@
-N = {
+N = 
     S
     H
-}
+    M
 
-T = {
+T = 
     b
     c
     d
     e
-}
 
-P = {
-    S -> bSe|H
-    H -> cHd|cd
-}
+P = 
+    S -> b,S,e|H
+    H -> c,H,d|cd
 
 s = S

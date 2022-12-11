@@ -17,10 +17,10 @@ Production get_production_from_str(const std::string& input) {
 
     std::istringstream dest_ss(str_destinations);
     std::string destination;
-    std::set<std::string> destionations;
+    std::vector<std::string> destionations;
 
     while (std::getline(dest_ss, destination, '|')) {
-        destionations.insert(destination);
+        destionations.push_back(destination);
     }
 
     return Production(source, destionations);
@@ -34,43 +34,40 @@ void Grammar::parse(const std::string& file_path)
     while (std::getline(in, line)) {
         if (line.size() > 0 && line[0] == 'N') {
             while (std::getline(in, line)) {
-                if (line.find("}") != std::string::npos) {
-                    break;
-                }
-
                 line = trim(line);
+
+                if (line.size() == 0)
+                    break;
 
                 if (line[line.size() - 1] == ',') {
                     line.pop_back();
                 }
 
-                m_nonterminals.insert(line);
+                m_nonterminals.push_back(line);
             }
         }
 
         if (line.size() > 0 && line[0] == 'T') {
             while (std::getline(in, line)) {
-                if (line.find("}") != std::string::npos) {
-                    break;
-                }
-
                 line = trim(line);
+
+                if (line.size() == 0)
+                    break;
 
                 if (line[line.size() - 1] == ',') {
                     line.pop_back();
                 }
 
-                m_terminals.insert(line);
+                m_terminals.push_back(line);
             }
         }
 
         if (line.size() > 0 && line[0] == 'P') {
             while (std::getline(in, line)) {
-                if (line.find("}") != std::string::npos) {
-                    break;
-                }
-
                 line = trim(line);
+
+                if (line.size() == 0)
+                    break;
 
                 if (line[line.size() - 1] == ',') {
                     line.pop_back();
@@ -78,7 +75,11 @@ void Grammar::parse(const std::string& file_path)
 
                 Production production = get_production_from_str(line);
 
-                m_productions.insert(production);
+                if (production.source().find('|') != std::string::npos) {
+                    m_isCFG = false;
+                }
+
+                m_productions.push_back(production);
             }
         }
 
@@ -96,17 +97,17 @@ void Grammar::parse(const std::string& file_path)
     in.close();
 }
 
-const std::set<std::string>& Grammar::get_nonterminals() const
+const std::vector<std::string>& Grammar::get_nonterminals() const
 {
     return m_nonterminals;
 }
 
-const std::set<std::string>& Grammar::get_terminals() const
+const std::vector<std::string>& Grammar::get_terminals() const
 {
     return m_terminals;
 }
 
-const std::set<Production>& Grammar::get_productions() const
+const std::vector<Production>& Grammar::get_productions() const
 {
     return m_productions;
 }
